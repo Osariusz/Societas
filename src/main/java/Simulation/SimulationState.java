@@ -16,27 +16,27 @@ public class SimulationState implements Serializable {
 
     public Consumer<String> log;
 
-    public void addPop(){
+    public void addPop() {
         Pop pop = new Pop(freePopId);
         popList.add(pop);
         freePopId++;
     }
 
-    public SimulationState(){
+    public SimulationState() {
 
     }
 
-    public SimulationState(int popCount){
+    public SimulationState(int popCount) {
         popList = new ArrayList<>();
-        for(int i = 0;i<popCount;++i){
+        for (int i = 0; i < popCount; ++i) {
             addPop();
         }
         //this.log = log;
     }
 
-    public void printPops(){
-        for (Pop pop: popList) {
-            System.out.println(pop.id);
+    public void printPops() {
+        for (Pop pop : popList) {
+            System.out.println(pop.getId());
         }
     }
 }

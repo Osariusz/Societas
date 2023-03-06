@@ -1,51 +1,52 @@
 package Simulation;
 
-import Agent.Pop;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 
 public class Simulation {
     SimulationState simulationState;
 
-    public Simulation(SimulationState simulationState){
+    public Simulation(SimulationState simulationState) {
         this.simulationState = simulationState;
     }
 
-    public void Log(String message){
+    public void log(String message) {
         System.out.println(message);
     }
 
-    public void LoadSimulationStateJSON(String json){
+    public void loadSimulationStateJSON(String json) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             this.simulationState = mapper.readValue(json, SimulationState.class);
-        }catch (Exception e){
-            Log("Can't load SimulationSate: " + e.toString());
+        } catch (Exception e) {
+            log("Can't load SimulationState: " + e.toString());
         }
     }
 
-    public void LoadSimulationStateFile(String fileName){
+    public void loadSimulationStateFile(String fileName) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            this.simulationState = mapper.readValue(new File(fileName),SimulationState.class);
-        } catch(Exception e){
-            Log("Can't load SimulationState from file: " + e.toString());
-        }
-    }
-    public void SaveSimulationState(String fileName){
-        ObjectMapper mapper = new ObjectMapper();
-        try{
-            mapper.writeValue(new File(fileName),simulationState);
-        }catch (Exception e){
-            Log("Can't save SimulationState to file" + e.toString());
+            this.simulationState = mapper.readValue(new File(fileName), SimulationState.class);
+        } catch (Exception e) {
+            log("Can't load SimulationState from file: " + e.toString());
         }
     }
 
-    public void PrintPops(){
+    public void saveSimulationState(String fileName) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File(fileName), simulationState);
+        } catch (Exception e) {
+            log("Can't save SimulationState to file" + e.toString());
+        }
+    }
+
+    public void printPops() {
         simulationState.printPops();
     }
 
-    public void Turn(){
+    public void turn() {
         simulationState.addPop();
     }
 }
