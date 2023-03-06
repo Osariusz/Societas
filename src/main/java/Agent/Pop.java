@@ -1,8 +1,10 @@
 package Agent;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Pop extends Trader {
 
-    public Pop(int id){
+    public Pop(@JsonProperty("id") int id){
         super(id);
     }
 }
