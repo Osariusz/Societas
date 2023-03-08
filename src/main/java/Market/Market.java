@@ -1,9 +1,12 @@
 package Market;
 
-import java.util.ArrayList;
+import Market.Offers.BuyOffer;
+import Market.Offers.SellOffer;
+import java.util.SortedMap;
 
 public class Market {
 
-    ArrayList<>
+    SortedMap<Integer, BuyOffer> buyingOffers;
+    SortedMap<Integer, SellOffer> sellingOffers;
 
 }
