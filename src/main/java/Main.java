@@ -11,7 +11,7 @@ public class Main {
         simulation.turn();
         simulation.turn();
         simulation.turn();
-        simulation.LoadSimulationStateFile("ekonomia0.json");
+        simulation.loadSimulationStateFile("ekonomia0.json");
         simulation.printPops();
     }
 }
